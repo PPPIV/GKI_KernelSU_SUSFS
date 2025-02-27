@@ -264,6 +264,16 @@ jobs:
           # Apply additional patch
           cp ../../kernel_patches/69_hide_stuff.patch ./
           patch -p1 -F 3 < 69_hide_stuff.patch
+
+      - name: Apply Bore Patches
+        run: |
+          echo "Changing to configuration directory: $CONFIG..."
+          cd "$CONFIG/common"
+          # Apply additional patch
+          if [ "${{ inputs.android_version }}" == "android14" && "${{ inputs.kernel_version }}" == "5.15" ]; then
+            cp ../../kernel_patches/bore/android-5.15-bore-5.1.0.patch ./
+            patch -p1 -F 3 < android-5.15-bore-5.1.0.patch
+          fi
             
       - name: Add SUSFS Configuration Settings
         run: |
