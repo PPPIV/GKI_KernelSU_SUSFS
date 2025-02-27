@@ -271,8 +271,8 @@ jobs:
           cd "$CONFIG/common"
           # Apply additional patch
           if [[ "${{ inputs.android_version }}" == "android14" && "${{ inputs.kernel_version }}" == "5.15" ]]; then
-            cp ../../kernel_patches/bore/android-5.15-bore-5.1.0.patch ./
-            patch -p1 -F 3 < android-5.15-bore-5.1.0.patch
+            cp ../../kernel_patches/bore/android14-5.15-bore-5.1.0.patch ./
+            patch -p1 -F 3 < android14-5.15-bore-5.1.0.patch
           fi
             
       - name: Add SUSFS Configuration Settings
