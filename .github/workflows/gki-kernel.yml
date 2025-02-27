@@ -270,7 +270,22 @@ jobs:
           echo "Changing to configuration directory: $CONFIG..."
           cd "$CONFIG/common"
           # Apply additional patch
-          if [[ "${{ inputs.android_version }}" == "android14" && "${{ inputs.kernel_version }}" == "5.15" ]]; then
+          if [[ "${{ inputs.android_version }}" == "android12" && "${{ inputs.kernel_version }}" == "5.10" ]]; then
+            cp ../../kernel_patches/bore/android14-5.15-bore-5.1.0.patch ./
+            patch -p1 -F 3 < android14-5.15-bore-5.1.0.patch
+          elif [[ "${{ inputs.android_version }}" == "android13" && "${{ inputs.kernel_version }}" == "5.10" ]]; then
+            cp ../../kernel_patches/bore/android14-5.15-bore-5.1.0.patch ./
+            patch -p1 -F 3 < android14-5.15-bore-5.1.0.patch
+          elif [[ "${{ inputs.android_version }}" == "android13" && "${{ inputs.kernel_version }}" == "5.15" ]]; then
+            cp ../../kernel_patches/bore/android14-5.15-bore-5.1.0.patch ./
+            patch -p1 -F 3 < android14-5.15-bore-5.1.0.patch
+          elif [[ "${{ inputs.android_version }}" == "android14" && "${{ inputs.kernel_version }}" == "5.15" ]]; then
+            cp ../../kernel_patches/bore/android14-5.15-bore-5.1.0.patch ./
+            patch -p1 -F 3 < android14-5.15-bore-5.1.0.patch
+          elif [[ "${{ inputs.android_version }}" == "android14" && "${{ inputs.kernel_version }}" == "6.1" ]]; then
+            cp ../../kernel_patches/bore/android14-5.15-bore-5.1.0.patch ./
+            patch -p1 -F 3 < android14-5.15-bore-5.1.0.patch
+          elif [[ "${{ inputs.android_version }}" == "android15" && "${{ inputs.kernel_version }}" == "6.6" ]]; then
             cp ../../kernel_patches/bore/android14-5.15-bore-5.1.0.patch ./
             patch -p1 -F 3 < android14-5.15-bore-5.1.0.patch
           fi
